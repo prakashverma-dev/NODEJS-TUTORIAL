@@ -31,7 +31,7 @@ iii) End the request-response cycle.(e.g: Only allowed request from some country
 
 iv) Call the next middleware function in the stack.(e.g: To pass to next middle ware in the queue in order wise)
 
-Note : Sequence of midddle ware of code from top to bottom matters for sending the response or not to client.
+Note : Sequence of midddleware of code from top to bottom matters for sending the response or not to client.
 
 #Syntax or How to create middleware/ Middleware function -
 The basic syntax for the middleware functions is:
@@ -70,9 +70,12 @@ server.use((req, res, next)=>{
     // Note : untill we dont call next() function to pass http request to out of middle ware function, just next in the order.
     //If we dont call next(), next code wouldnot get executed and client wait for the response as It woundnot fullfill. 
 
-    next();
     console.log("Middle Ware Function..ended up here");
+    next();
+    // res.end("wow 5")
 })
+
+console.log("heyy")
 
 server.get("/", (req, res)=>{
     

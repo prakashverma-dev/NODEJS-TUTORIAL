@@ -22,12 +22,12 @@ server1.get("/", (req, res)=>{
     /*
     NOte :  i) When the parameter is a String, the send() method sets the Content-Type to “text/html” by default -
 
-        res.send('<p>some html</p>')
+        res.send('<p>some html</p>') ; //when string data it sends as HTML doc to client i.e sets Content-Type : “text/html” by default for string input. 
 
 
         ii) When the parameter is an Array or Object, Express responds with the JSON representation:
 
-        res.send({ user: 'tobi' })
+        res.send({ user: 'tobi' }); //if input is array or object sends as json formate.
         res.send([1, 2, 3])
         
         iii) res.json([body])
@@ -40,19 +40,57 @@ server1.get("/", (req, res)=>{
         res.json({ user: 'tobi' })
         res.status(500).json({ error: 'message' })
 
+        iv) res.set( "field" , "value") -->  Sets the response’s HTTP header field to value. To set multiple fields at once, pass an object as the parameter. e.g: 
+                res.set({
+                        'Content-Type': 'text/plain',
+                        'Content-Length': '123',
+                        ETag: '12345'
+                        })
 
-    
+                res.set('Content-Type', 'text/plain')
+                
+        v) res.get("field")  --> Returns the HTTP response header specified by field. The match is case-insensitive.
+
+                    res.get('Content-Type'); // text/plain
+
+        vi) res.status(code) --> Sets the HTTP status for the response. It is a chainable alias as res.status(code).<chain_methods>
+
+            res.status(code);
+            res.status(403).end()
+            res.status(400).send('Bad Request')
+            res.status(404).sendFile('/absolute/path/to/404.png')
+
+            can Also, res.sendStatus(404);
+
+        vii) res.redirect(status, urlPath or static Path) -->  Redirects to the URL specified at path parameter, with optional first paramter as status code. If status code is not specified, status defaults to “302 “Found”.
+
+            res.redirect(301, 'http://example.com')
+            res.redirect('http://google.com'); //redirecting to different site.
+
+            Redirects can be relative to the root of the host name. For example, if application is on http://example.com/admin/post/new, the following would redirect to the URL http://example.com/admin-
+
+            res.redirect('/admin'); //Redirected to root url from relative API URL.
+
+            res.redirect('post/new'); //redirected to upper relative URL from current URL/API.
+
+            res.redirect('/foo/bar')           
+            res.redirect('../login')
+            
+
+       viii) res.render(view [, locals] [, callback])  ---> Renders a view and sends the rendered HTML string to the client. Optional parameters:  
+        // send the rendered view to the client
+            res.render('index')   
+
+
+        ix) res.end([data] [, encoding]) : Ends the response process. This method actually comes from Node core, specifically the response.end() method of http.ServerResponse.
+
+        Use to quickly end the response without any data. If you need to respond with data, instead use methods such as res.send() and res.json().
+
+            res.end()
+            res.status(404).end()    
+
+
     */
-
-        // res.status(code); //Sets the HTTP status for the response. It is a chainable alias of Node’s response.statusCode.
-
-        //Can also send together -
-
-            // res.status(403).end()
-            // res.status(400).send('Bad Request')
-            // res.status(404).sendFile('/absolute/path/to/404.png')
-
-            // res.sendStatus(404);// can also send  status
 
             // res.status(201).send("Hey Prakash..........This is GET Method!")
             res.status(201).send({ye_hai : "Hey Prakash..........This is GET Method!"})

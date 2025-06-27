@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stripe Payment Gateway Demo</title>
+</head>
+<body>
+    <h2>Welcome To Stripe Payment Gateway</h2>
+    <strong>Pay Your : <%= amount %> Rupess </strong>
+    <br> <br>
+    <form action="/payment" method="post">
+        <script 
+        src="//checkout.stripe.com/v2/checkout.js"
+        class="stripe-button"
+        data-key="<%= key %>"
+        data-amount="50000"
+        data-currency="inr"
+        data-name="Prakash Verma"
+        data-description="Handmade Art and Craft Products"
+        data-locale="auto" >
+        </script>
+    </form>
+    
+</body>
+</html>

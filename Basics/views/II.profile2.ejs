@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <%- include('common/header')  %>
+
+    <h1>Hey Rowdy this is dynamic line : <%= userData.name  %>  ; It is Profile Page!</h1>
+
+        <h2>Email : <%= userData.email  %> </h2>
+        <ul>
+            <% userData.skills.map(item => { %>
+
+                <li> <%= item %> </li>
+
+            <% })%>
+        </ul>
+
+    
+</body>
+</html>

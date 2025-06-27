@@ -467,6 +467,62 @@ Mongorestore command is used to restore database
 Above command restore your database accounts from backup directory dump
 
 
+#17.) MongoDB Aggregation : Aggregation is a way of processing a large number of documents in a collection by means of passing them through different stages. The stages make up what is known as a pipeline. The stages in a pipeline can filter, sort, group, reshape and modify documents that pass through the pipeline.
+
+One of the most common use cases of Aggregation is to calculate aggregate values for groups of documents. This is similar to the basic aggregation available in SQL with the GROUP BY clause and COUNT, SUM and AVG functions. MongoDB Aggregation goes further though and can also perform relational-like joins, reshape documents, create new and update existing collections, and so on. 
+
+How does the MongoDB aggregation pipeline/stages work -
+
+Input/Collection --> $match --> $group --> $sort -->  $project  ---> Output
+
+The input of the pipeline can be a single collection, where others can be merged later down the pipeline.
+
+The pipeline then performs successive transformations on the data until our goal is achieved.
+
+This way, we can break down a complex query into easier stages, in each of which we complete a different operation on the data. So, by the end of the query pipeline, we will have achieved all that we wanted.
+
+This approach allows us to check whether our query is functioning properly at every stage by examining both its input and the output. 
+
+Note :  The output of each stage will be the input of the next.
+
+syntax : db.COLLECTION.aggregate(pipeline, options); //Pipeline is an array of different operation at different stages.
+
+where COLLECTION – is the name of a collection,
+pipeline – is an array that contains the aggregation stages,
+options – optional parameters for the aggregation 
+
+This is an example of the aggregation pipeline syntax:-
+
+pipeline = [
+        { $match : { … } },
+        { $group : { … } },
+        { $sort : { … } }
+       ]
+
+
+MongoDB aggregation stage limits : Aggregation works in memory. Each stage can use up to 100 MB of RAM. You will get an error from the database if you exceed this limit.
+
+If it becomes an unavoidable problem you can opt to page to disk, with the only disadvantage that you will wait a little longer because it is slower to work on the disk rather than in memory. To choose the page to disk method, you just need to set the option allowDiskUse to true like this:
+
+db.collectionName.aggregate(pipeline, { allowDiskUse : true })     
+
+pipeline Operations : 
+
+i) $match
+
+ db.teachers.aggregate([
+
+    {$match : {gender : "male"}} //first pipeline operation statge-I
+
+])
+
+ii) Groupe Teachers by age : -
+
+ db.teachers.aggregate([
+
+    {$group : {gender : "male"}} //first pipeline operation statge-I
+
+])
 
 
 

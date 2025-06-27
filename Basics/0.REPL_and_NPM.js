@@ -129,6 +129,10 @@ devDepndencies --> related not with our core coding like installing nodemon whic
 
 > npm install nodemon --save-dev  (TO save nodemon module as under devDependencies object of package.json)
 
+OR,
+
+>npm i nodemon -D
+
 > npm install express --save (To express module under dependencies object of package.json, where dependencies object is the default object to save all pulled modules from npm)
 
 Note : -
@@ -136,6 +140,10 @@ Note : -
 --save flag after <module_name> is default flag to add module version in dependencies object only i.e the default place to get added any modules there. 
 
 e.g : >npm install express --save 
+
+OR, 
+
+>npm i nodemon -S
 
 i.e same as >npm install express
 
@@ -304,7 +312,7 @@ node_modules
 dotenv Module : Dotenv is a zero-dependency module that loads environment variables from a .env file into process.env
 
 Install dotenv : >npm install dotenv
-Create a .env file in the root of your project and store our secret data in that .env file(mention .dev file in .gitignore file) as follows -
+Create a .env file in the root of your project and store our secret data in that .env file(mention .dev file in .gitignore file also) as follows -
 
 DB_PASSWORD = "Rowdy@123"
 DB_PUBLIC_DIR = 'public'
@@ -314,6 +322,7 @@ SECRET_KEY="YOURSECRETKEYGOESHERE"
 
 To use stored data from .env to our project file, call require('dotenv').config()  at top of the file -
 
+Note : -
 require('dotenv').config()
 console.log(process.env.<Variable_Name>) //to access the variable value. 
 

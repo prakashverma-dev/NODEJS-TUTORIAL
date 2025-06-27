@@ -15,7 +15,7 @@ const auth = (req, res, next)=> {
 
     if(req.query.password=="12345"){
 
-        next();//to pass the middle ware.
+        next();//to pass the current middle ware.
 
     }else{
 

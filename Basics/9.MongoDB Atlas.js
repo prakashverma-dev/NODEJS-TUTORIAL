@@ -31,6 +31,7 @@ Use this connection string in your application
 
 mongodb+srv://theverma:<db_password>@cluster0.vqswr.mongodb.net/
 
+
 Here, Replace <db_password> with the password for the theverma user.
 
 c) MongoDB's Drivers : Acces the atlas data using MongoDB's native drivers for nodejs, java, php programming languages.
@@ -52,6 +53,8 @@ Use this connection string in your application-
 
 mongodb+srv://theverma:<db_password>@cluster0.vqswr.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
 
+
+
 i.e const uri = "mongodb+srv://theverma:<db_password>@cluster0.vqswr.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 
 Here, Replace <db_password> with the password for the theverma database user.
@@ -65,7 +68,6 @@ MongoDB Nodejs Driver allows Nodejs applications to connect to MongoDB and work 
 Whereas,
 
 Mongoose : NPM Mongoose library Package makes us easy to connect to MongoDB database only once for our project and then we can able to work with database.
-
 
 -------------------------------------------------------------------------------
 

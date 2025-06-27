@@ -90,7 +90,7 @@ Way2 :
 console.time() ; //To start a timer in the console for the same line
 console.timeEnd() ; //To end the start timer and console the time taken as result to the console.
 
-2.) NOte : __dirname to know current directory and __filename for knowing the current directory with file path name.
+2.) NOte : __dirname to know current directory and __filename for knowing the current directory with file path name. 
 
 console.log("This is Current Directory ", __dirname);
 console.log("Directory With Current FileName ", __filename);

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat APP - Socket.IO chat </title>
+    <link rel="shortcut icon" href="./favicon.jpeg" type="image/x-icon">
+    <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+
+ 
+
+    <section>
+        <!-- <p><b>Quick</b> <em>Chat App</em></p> -->
+
+
+        <div class="chat__section">
+
+            <div class="brand">
+                <img src="./favicon.jpeg" height="40" alt="QuickChat">
+                <h1>Quick <i> Chat</i></h1>
+            </div>
+
+            <div class="message__area">
+                <div class="incoming message">
+                    <h4>Swati</h4>
+                    <p>Lorem ipsum dolor sit amet.</p>
+
+                </div>
+                <div class="incoming message">
+                    <h4>Swati</h4>
+                    <p>Lorem ipsum dolor sit amet.</p>
+
+                </div>
+                <div class="incoming message">
+                    <h4>Swati</h4>
+                    <p>Lorem ipsum dolor sit amet.</p>
+
+                </div>
+                <div class="incoming message">
+                    <h4>Swati</h4>
+                    <p>Lorem ipsum dolor sit amet.</p>
+
+                </div>
+                <div class="incoming message">
+                    <h4>Swati</h4>
+                    <p>Lorem ipsum dolor sit amet.</p>
+
+                </div>
+                <div class="incoming message">
+                    <h4>Swati</h4>
+                    <p>Lorem ipsum dolor sit amet.</p>
+
+                </div>
+                <div class="outgoing message">
+                    <h4>Prakash</h4>
+                    <p>Hey How are you, All ? </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="textInput__section">
+
+            <textarea name="" id="inputText" cols="30" rows="1" placeholder="Write your message here.."></textarea>
+        </div>
+
+    </section>
+
+
+
+    <!-- <div>
+        <ul id="allMsg">
+
+            We will apend all message from the socket server here.. using DOM Manipulation - 
+
+        </ul>    
+
+    </div>
+
+    <div>
+    
+        <form  id="form" onsubmit="return false">
+
+            <input type="text" placeholder="Enter Message" id="inputMsg" value="" autocomplete="off">
+            <button id="sendBtn">Send</button>
+
+        </form>
+
+    </div> -->
+    
+
+    <!-- <button onclick="createWSConnection()">Create WS Connection</button> -->
+
+
+    <!-- In Frontend TO load socket.io , socket.io provides a scipt which help us to communicate with socket backend server -   
+     CLient-socket.io libraby get loaded at fronted    -->
+    <script src="/socket.io/socket.io.js"></script> 
+
+    <!-- That’s all it takes to load the socket.io-client, which exposes an io global function/method (and the endpoint GET /socket.io/socket.io.js), and once we called that io function here in script tag of html, we then connected with server socket! -->
+
+    <!-- For writting code for socket to communicate from server - -->
+    <script src="./script.js"></script>
+
+</body>
+</html>

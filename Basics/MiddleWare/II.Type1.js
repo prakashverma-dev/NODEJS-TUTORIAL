@@ -12,6 +12,8 @@ server.use((req, res, next)=>{
 
     console.log(req.method, req.ip, req.hostname, new Date(), req.get("User-Agent")); 
 
+    next();
+
 });
 
 server.get("/", (req, res)=>{
@@ -19,6 +21,6 @@ server.get("/", (req, res)=>{
     res.send("Response From Server..!"); 
 } );
 
-server.listen(8000);
+server.listen(8000, ()=> console.log('server started at 8000'))
 
 
