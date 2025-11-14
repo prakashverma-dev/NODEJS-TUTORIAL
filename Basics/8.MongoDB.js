@@ -151,18 +151,20 @@ iii.) Read Documents Under collection : -
 There are 2 methods to see documents from desired collection, find() and findOne().
 
 .find()  - returns an array having documents a object.
-.findOne()  - return only one document i.e an single object.
+.findOne()  - return the first object or document from the collection. 
 
 IV.) Read Documents Under collection With Filtering Contraints :-
 
 To See a specific documents under the collection - use .find({}), .findOne({}) methods, both accepts a query object. 
 
 
-.find({key : "value"})  - Insert a key-value pair to filter the complete collection and return an array having single filtered object. 
-find() method can returns many objects/documents in the array. 
+.findOne({key : "value"})  - Return an object of selected key-value from collection.  
 
-.findOne({key : "value"})  - Insert a key-value pair to filter the complete collection and return an object i.e document directly rather showing up an array as we have used .findOne() method which returns a single document i.e object. 
-findOne() method will only return the first document match it finds from the collection as document type.
+.find({key : "value"})  - Return an array/collection having selected key-value from collection. It many be one or many objects inside the array as per filered key-value. 
+
+
+findOne({}) method which returns a single document i.e object. 
+findOne({}) method will only return the first document match it finds from the collection as document type.
 
 
 Note : Each Data Entry i.e a Document Entry In Collection, MongoDB creates a unique id i.e known as primary id in database, MogoDB name it as 'objectId' for primary key. 
@@ -172,7 +174,7 @@ Syntax
 >db.COLLECTION_NAME.find().pretty()
 
 
-V.) Filtering Documents Based o Query Operator used in Mongodb : -
+V.) Filtering Documents Based on Query Operator used in Mongodb : -
 
 There are many query operators that can be used to compare and filter out desired document/documents based on give conditional operator used.
 

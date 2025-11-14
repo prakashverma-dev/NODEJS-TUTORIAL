@@ -12,7 +12,7 @@ Note : i) SQL keywords are NOT case sensitive: select is the same as SELECT and 
 
 ii) Some database systems require a semicolon at the end of each SQL statement.
 
-Semicolon is the standard way to separate each SQL statement in database systems that allow more than one SQL statement to be executed in the same call to the server.
+Semicolon is the standard way to separate each SQL statement in database systems that allow more than one SQL statement to be executed in the same call to the server. 
 
 Thus, we will use semicolon at the end of each SQL statement.
 
@@ -109,6 +109,12 @@ FROM <table_name> ;
 
 Note : We use * to select all columns under the table.
 e.g: SELECT * FROM customers;
+
+Note : To see table, without inside database -
+Select * FROM <database_name>.<table_name>;
+
+Example:
+Select * FROM crud.students;
 
 
 c) TO see columns data with a new names for just query purpose only (We use 'AS' keyword then our own defined name if owned defined name contains space then put it in quotes) -
@@ -288,7 +294,7 @@ XIII) UPDATE Command : - It is use to update the any existing record data or dat
 
 Syntax : UPDATE <table_name>
          SET colname1 = value1, colname2 = value2, ...
-         WHERE condition i.e target the row by name or id ;
+         WHERE condition (i.e target the row by name or id) ;
 
 Note :  If Ommit WHERE Command i.e if we dont specifying any selected row i.e targeted row then that new value get updated to all colnames -
 

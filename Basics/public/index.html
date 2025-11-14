@@ -5,6 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
+<!-- By default, the Socket.IO server exposes a client bundle at /socket.io/socket.io.js. -->
+
+<script src="/socket.io/socket.io.js"></script>
+
+<script>
+  const socket = io(); //io is library here which is global from clinent bundler when we initiate it creates a soket at client side.
+
+  console.log("Socket id at Client :", socket.id) 
+
+// Note : io will be registered as a global variable:
+
+// Now, Let's send the data to server via using 'emit' method -
+socket.emit("msg", {player : "one"})
+
+
+
+  // to recieve data from server to client, using 'on' method -
+  socket.on("msg2", (data)=>{
+        console.log(data)
+  })
+
+
+
+</script>
+
 <body>
 
     <h1>Static Webpage Containing HTML, CSS, Javascript..!</h1>

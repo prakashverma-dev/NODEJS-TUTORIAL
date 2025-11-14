@@ -10,7 +10,7 @@ const httpServer = http.createServer(server);
 
 server.use(express.static('public'))
 
-//Static HTML file servering(we can use express middleware to serve it better)
+//Static HTML file servering(we can use express middleware to serve it better, which is used above without any server END point called.. dammm)
 // server.get("/", (req, res)=>{
 
 //     // res.send("heyy");

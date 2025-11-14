@@ -15,57 +15,61 @@ Response(res) : via response way server sends back the desired response to clien
 
 Note : Port Number of https protocol is 443 .
 
-#Response Status Can Have following Codes : -
+# As Clinet Do the HTTP Request(in the HTTP request Line), then server sends the HTTP Response(in the HTTP response Line) with a 'Status Code' which implies the request wanting either fullfilled or rejected or get some problem either from client error or our own error(server error).
 
-i) 4XX (Client Error Happened) : Means Client Side Sent/Asked information have some error like -
+Thus, HTTP Response Line can have following either one 'Satus Code' : -
 
-400 - Bad Request
-401  - Unauthorised 
-403 - Forbidden 
-404 - Not Found
-405 - Method Not Allowed
+i) 2xx (Success Code) : 2xx means jo client request kiya tha via HTTP Request, woh succefully fullfilled kar diya gaya hai with either following success code -
 
-This all means Server if sends anyone of them to client browser measn client has done some mistake in asking the request which server can't fullfill .
+200 - "OK"  (OK means everthing is succefull means jo bola tha woh ho gaya)
+201 - "Created" (Data has been created succefully, that's user Request)
+202 - "Accepted" (Jo Bola tha woh accept karke success ho gaya hai)
 
-
-
-ii) 2XX (Succes Code) : Successfully sends the data to client as per demanded request from client, the  server resonse with starting with 2XX code like -
-
-200 - "OK"
-201 - "Created"
-202 - "Accepted"
-
-iii) 3XX (Indicates for Redirections) : Server Respond these code to client/browser when there will be any Redirection happened, like such codes -
+ii) 3xx (Request Redirections) : Server Respond these code to client/browser when there will be any Redirection happened, like such codes -
 
 301  -  MOoved Permanently
 302  - Found
 304 -  Not Modified
 
-iv) 5XX (Server Erorr Happened) : These Codes sends back to client side if server have some error and can't fullfill the request, these could be like -
+iii) 4xx (Client Side Error) : 4xx matalab jo request kiya gaya the user dwara woh server par found nahi hai or. wrong request hai or, request authorized nahi hai or, kuch gadbad hai client side me hi(like wrong HTTP method or syntax error), aur Server REJECT kar deta hai request with response with either one code below -
+
+400 - Bad Request
+401  - Unauthorised Request
+403 - Forbidden Request
+404 - Not Found At Server
+405 - Method Not Allowed
+
+Server if sends anyone of above status code to client browser measn client has done some mistake in asking the request which server can't fullfill and Rejects.
+
+
+iv) 5xx (Server Erorr) : 5xx matlab bhai client ki galati nahi hai, meri galati hai means Client jo HTTP Request kiya hai, meri galati ke karan main apki request fullfill nahi kar paa rha, aur HTTP response me either one code Server sends -
 
 500  -  Internal Server Error
 502  -  Bad Gateway
 
 
 
-#To see all the status code in browser : Go to dev tools i.e Developer Tools and switch to Network Tab and you can do the throttling i.e controlling the speed the http loading and getting back the response from web server.
+## Note:- To see all the status code in browser : Go to dev tools i.e Developer Tools and switch to Network Tab and you can do the throttling i.e controlling the speed the http loading and getting back the response from web server.
 
 You can make slow 3G , offline 2G etc. 
 
-#We can see the total number of request for a perticular domain or domain with path, under the Network tab..So no of request alwas = no of response. 
+#We can see the total number of request for a perticular domain or domain with path, under the Network tab.. So no of request always = no of response. 
 
 # Browser has classified all the type of content for request and response in filter section like all, Js, document, font, css, js etc which are possible request and response content type could be for a https request.
 
-#Content-Type that exchange between client to server and server to client, can have followings -
 
-Content-Type : <media-type>
+# Context-Type : It the Type of Content that server delibertly sends or want to set before sending his content to client so that client understands wht kind of data server sent me.
 
-               text/html (for html doc type)
-               application/json (for JSON string data)
-               text/javascript (for js file type)
-               text/css (for css file type)
-               image/png (for image type)
-               multipart/form-data (for form data type)
+// It could be of any type below : -
+
+Syntax: Content-Type : <media-type>
+
+Content-Type : text/html (for sending html document type)
+               text/javascript (for sending js file type)
+               application/json (for sending JSON string data)  
+               text/css (for sending css file type)
+               image/png (for sending image type)
+               multipart/form-data (for sending form data type)
 
 
 

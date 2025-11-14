@@ -1,7 +1,9 @@
 /*
-# Websocket : We can implement websocket connection using socket.io library. Basically in simple http request-response, everytime the connection get closed after one req-res cycle ends.(here, we need to end the response once we recieve a request so client can read) But, In websocket once we make a http connection with websocket i.e http websocket(wb) connection which is with the help of upgrade header. 
+# Websocket : We can implement websocket connection using NodeJS 'socket.io' library. Basically in simple http request-response, everytime the connection get closed after one req-res cycle ends.(here, we need to end the response once we recieve a request so client can read) But, In websocket once we make a http connection with websocket i.e http websocket(wb) connection which is with the help of upgrade header. 
 
 Thus, Websocket connection is bi-directional means anytime client-server can communicates in any number of request or response from any sides.
+
+Websocket works on event-driven architecture in nodejs.
 
 //Webscoket is/sets bi-direction communication protocol where connnection not ends untill client doesnt ends.
 
@@ -71,3 +73,27 @@ To see the example and working in PROJECT_04 -
 
 
 */
+
+const express = require("express");
+const { createServer } = require("http");
+const { Server } = require("socket.io");
+
+const app = express();
+const httpServer = createServer(app);
+const io = new Server(httpServer, { /* options */ });
+
+io.on("connection", (socket) => {
+  // ...
+  console.log("Socket id at Server :", socket.id)
+
+
+  // to recieve data from client to server, using 'on' method -
+  socket.on("msg", (data)=>{
+        console.log(data)
+  })
+
+// to sent data from server to client, using 'emit' method -
+  socket.emit("msg2", {server: "hi"})
+});
+
+httpServer.listen(3000, ()=>console.log("Server Started on 3000 Port!"));

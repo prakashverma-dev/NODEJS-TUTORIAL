@@ -1,7 +1,8 @@
 
 //ALl APIS Here - GET API, POST API, PUT API, DELETE API.
+// CRUD Operation : CREATE, READ, UPDATE, DELETE
 
-//i.) Creating GET API with MySQL database connection -
+//i.) Reading - GET API with MySQL database connection -
 
 const express = require("express");
 const server = express();
@@ -24,7 +25,7 @@ server.get("/", (req, res)=>{
 
 });
 
-//ii.) To post data i.e create a new data inside the database i.e insert one data into mysql database -
+//ii.) Creating - To post data i.e create a new data inside the database i.e insert one data into mysql database -
 //Defining POST route for POSTing i.e Insering a new data to database -
 //NOte: If methods are different then same routes works coz end point hit will be different coz of method change. Here, GET and POST end point i.e hit route can be same.
 server.post("/", (req, res)=>{
