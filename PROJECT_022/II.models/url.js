@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 
-//Schema-
+// URL Schema-
 const urlSchema = new mongoose.Schema({
 
     //We generate a unique id each time of new url visit and save it corrsponding to the same unique id.
@@ -22,6 +22,6 @@ const urlSchema = new mongoose.Schema({
 }, {timestamps : true});
 
 //Model-
-const urlModel = mongoose.model("urlshortener", urlSchema); // keep the name of collection under database/ If you keep colletion name in capital letter and singular form, mongoose automcatically converts the collection name in all lowercase and with its plural form while registering at the database.
+const urlModel = mongoose.model("url", urlSchema); // keep the name of collection under database/ If you keep colletion name in capital letter and singular form, mongoose automcatically converts the collection name in all lowercase and with its plural form while registering at the database.
 
 module.exports = urlModel;

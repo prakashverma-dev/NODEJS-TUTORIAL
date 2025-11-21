@@ -4,6 +4,10 @@ const express = require("express");
 const server = express();
 PORT = process.env.PORT || 8001;
 const cookieParser = require('cookie-parser')
+const {mongoDBConnect} = require("./connect")
+
+mongoDBConnect().catch((err)=> console.log("Error : ", err));
+
 
 //Acquiring all files -
 const {staticRouter} = require('./III.routes/staticRoute');
@@ -57,7 +61,6 @@ function checkAuthAtStaticLoginAndSignup(req , res , next){
 
 
 
-
 server.use(express.json()); //For JSON Data Parsing from HTTP Request Body
 server.use(express.urlencoded({extended : false}));//For Form Data Parsing from 
 server.use(cookieParser()); //third party middle ware to access the cookie from the header of the HTTP request.
@@ -65,7 +68,8 @@ server.set('view engine', 'ejs');
 server.set('views', path.resolve('./0.views'))
 
 //For Frontend/Client/Static Routes URL Routes -
-server.use("/", checkAuthAtStaticLoginAndSignup , staticRouter);  // Inidcates '/' at home Base_Route will render
+// server.use("/", checkAuthAtStaticLoginAndSignup , staticRouter);  // Inidcates '/' at home Base_Route will render
+server.use("/" , staticRouter);  // Inidcates '/' at home Base_Route will render
 
 
 //For Backend i.e Server URL Routes -

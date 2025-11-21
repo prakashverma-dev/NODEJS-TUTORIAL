@@ -5,6 +5,8 @@ const PORT = 8000;
 const path = require("path");
 
 
+
+// Setup of EJS template -
 server.set('view engine', "ejs");
 server.set("views", path.resolve("./I.views"));
 

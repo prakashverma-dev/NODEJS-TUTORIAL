@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <style>
+        body{
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            /*'Tahoma' Remember*/
+        }
+
+    </style>
+</head>
+<body>
+    <h1>URL Shortener  </h1>
+    <div>
+        <form method="POST" action="/url"   > 
+            <!--  method="POST" means ye form POST API ko call/hit karega backend me i.e server side and action="" defines that kis 
+            API_Path/route par POST Request karega ye form.
+
+            action="/" that is the default server routes path to hit the method request, and method="GET" is the default method which it request if user esckipe all these.
+            
+            -->
+
+            <!-- enctype="application/x-www-form-urlencoded" - Default value of enctype.
+
+            The enctype attribute specifies how the form-data should be encoded when submitting it to the server.
+            Note: The enctype attribute can be used only if method="post".
+             
+            application/x-www-form-urlencoded   ->  Default. All characters are encoded before sent (spaces are converted to "+" symbols, and special characters are converted to ASCII HEX values).
+
+            multipart/form-data	 ->  This value is necessary if the user will upload a file through the form.
+
+            text/plain	->  Sends data without any encoding at all. Not recommended
+
+            
+            -->
+
+            <!-- onclick="event.preventDefault()" -->
+            <!-- onclick="return false" -->
+
+            <label for="url">Enter Your Long URL :</label>
+            <input type="url" name="url" id="url" placeholder="https://example.com/long-url" size="60" required  >
+            <!-- Here, name = "url" which is being send to server as HTTP POST Body Data as req.body.url ; here url is the paramter by which we can fetch body data at server side as url = ""  -->
+
+        <br>
+        <br>
+            <button type="submit" >Generate Shorten  URL</button>
+
+            <br>
+            <br>
+            
+            
+
+
+        </form>
+
+    </div>
+    <!-- locals object used for accessing any input from the backend for if() condition  -->
+
+
+    <div> 
+        <% if(locals.shortenerId) { %>
+
+            <label for="">Shorten URL :</label>
+            <input type="text" value="http://localhost:<%= PORT %>/url/<%=shortenerId  %>" size="35" id="shortURL" readonly>
+
+            <input type="button" value="COPY URL" onclick="navigator.clipboard.writeText( document.getElementById('shortURL').value );  this.value='COPIED'" >
+
+        <br>
+        <br>
+        
+        <% } %>
+
+    </div>
+
+    <div>
+        <% if (locals.allDocs) { %>
+
+            <table border="1" style="width:80%; text-align: center">
+                <!-- <caption></caption> -->
+                <thead>
+                    <tr>
+                        <th colspan="5">Record of All URLs</th>
+                    </tr>
+                    <tr>
+                        <th>S.No</th>
+                        <th>LongURL</th>
+                        <th>ShortenID</th>
+                        <th>ShortenURL</th>
+                        <th>Clicks</th>
+                    </tr>
+
+                </thead>
+                <tbody>
+
+                        <% allDocs.forEach((item, index ) => { %>
+
+                            <tr>
+                                <td><%= index+1 %></td>
+                                <td><%= item.redirectURL %></td>
+                                <td><%= item.shortenerId %></td>
+                                <td> <a href="http://localhost:<%= PORT %>/url/<%= item.shortenerId %>" target="_blank">
+                                    
+                                    http://localhost:<%= PORT %>/url/<%= item.shortenerId %>
+                                
+                                </a>
+                                </td> 
+                                <td><%= item.visitHistory.length %></td>  
+
+                            </tr>
+                         
+                        <% }) %>
+
+    
+                </tbody>
+
+            </table>
+         
+        <% } %>
+
+
+    </div>
+     
+</body>
+</html>
