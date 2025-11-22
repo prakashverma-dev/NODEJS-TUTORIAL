@@ -1,5 +1,5 @@
 const mongoose = require("mongoose")
-
+require("dotenv").config()
 // //mongoose Connection with Local Database -
 // async function mongoDBConnect(params) {
     
@@ -13,7 +13,7 @@ const mongoose = require("mongoose")
 //mongoose Connection with Mongodb Atlas Database -
 async function mongoDBConnect() {
     
-    await mongoose.connect("mongodb+srv://admin:root@cluster0.jfemea5.mongodb.net/url_shortener?appName=Cluster0"); //must add the name of database
+    await mongoose.connect(process.env.MONGO_URI); //must add the name of database
     console.log("MongoDB atlas Database Connected Succefully!");
 
 } 

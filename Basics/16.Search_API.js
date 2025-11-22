@@ -3,7 +3,7 @@
  const path= require("path");
  const mongoose = require('mongoose');
  const URI = `mongodb://127.0.0.1:27017/eCommerce`;
-//  const URI = `mongodb+srv://theverma:Prakash%407676@cluster0.vqswr.mongodb.net/`
+//  const URI = `mongodb+srv://<username>:<password>@cluster0.vqswr.mongodb.net/`
 
 const product2Model = require("./models/1.SearchAPI.js");
 
